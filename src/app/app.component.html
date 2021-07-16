@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+  <span>My Switching Dark-Light Mode App</span>
+  <span style="flex: 1 1 auto;"></span>
+  <button mat-button (click)="openDialog()">Show</button>
+  <mat-slide-toggle
+  (click)="ToggleDarkMode()"
+   [(ngModel)]="isDarkMode"
+   ><span>{{isDarkMode? 'Mode Clair':'Mode Nuit' }}</span>
+  </mat-slide-toggle>
+</mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>
+</mat-drawer-container>
